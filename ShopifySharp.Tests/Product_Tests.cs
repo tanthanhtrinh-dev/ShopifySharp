@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace ShopifySharp.Tests
 {
@@ -12,10 +13,12 @@ namespace ShopifySharp.Tests
     public class Product_Tests : IClassFixture<Product_Tests_Fixture>
     {
         private Product_Tests_Fixture Fixture { get; }
+        private readonly ITestOutputHelper _output;
 
-        public Product_Tests(Product_Tests_Fixture fixture)
+        public Product_Tests(Product_Tests_Fixture fixture, ITestOutputHelper output)
         {
             this.Fixture = fixture;
+            this._output = output;
         }
 
         [Fact]
@@ -25,9 +28,10 @@ namespace ShopifySharp.Tests
 
             //Act
             var count = await Fixture.Service.CountAsync();
-            
+
             //Assert
-            Assert.True(count > 0, $"Total Product on store {count}");
+            _output.WriteLine($"Total Product on store {count}");
+            Assert.True(count > 0);
         }
 
         [Fact]
