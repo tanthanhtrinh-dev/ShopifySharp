@@ -35,7 +35,15 @@ namespace ShopifySharp.Tests
             }
 
             var prefix = "SHOPIFYSHARP_";
-            var value = Environment.GetEnvironmentVariable(key) ?? Environment.GetEnvironmentVariable(prefix + key);
+            var value = String.Empty;
+            if (String.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable(key)))
+            {
+                value = Environment.GetEnvironmentVariable(prefix + key);
+            }
+            else
+            {
+                value = Environment.GetEnvironmentVariable(key);
+            }
 
             if (string.IsNullOrEmpty(value))
             {
