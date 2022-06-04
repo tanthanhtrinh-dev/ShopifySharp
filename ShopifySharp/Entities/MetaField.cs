@@ -36,6 +36,12 @@ namespace ShopifySharp
         public string Type { get; set; }
 
         /// <summary>
+        /// Metafield value_type deprecation. See https://shopify.dev/apps/metafields/types#metafield-value_type-deprecation
+        /// </summary>
+        [JsonProperty("value_type")]
+        public string ValueType { get; set; }
+
+        /// <summary>
         /// Container for a set of metadata. Namespaces help distinguish between metadata you created and metadata created by another individual with a similar namespace (maximum of 20 characters).
         /// </summary>
         [JsonProperty("namespace")]
