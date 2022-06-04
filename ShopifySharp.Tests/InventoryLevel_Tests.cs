@@ -61,6 +61,7 @@ namespace ShopifySharp.Tests
                 InventoryItemIds = new long[] { Fixture.InventoryItemId }
             })).Items.First();
 
+
             var adjustInventoryLevel = new InventoryLevelAdjust()
             {
                 AvailableAdjustment = availableAdjustment,
