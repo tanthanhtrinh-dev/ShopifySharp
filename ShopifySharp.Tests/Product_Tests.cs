@@ -21,9 +21,13 @@ namespace ShopifySharp.Tests
         [Fact]
         public async Task Counts_Products()
         {
-            var count = await Fixture.Service.CountAsync();
+            //Arrange
 
-            Assert.True(count > 0);
+            //Act
+            var count = await Fixture.Service.CountAsync();
+            
+            //Assert
+            Assert.True(count > 0, $"Total Product on store {count}");
         }
 
         [Fact]

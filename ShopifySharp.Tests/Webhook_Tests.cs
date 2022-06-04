@@ -20,9 +20,8 @@ namespace ShopifySharp.Tests
         [Fact]
         public async Task Counts_Webhooks()
         {
-            var count = await Fixture.Service.CountAsync();
-
-            Assert.True(count > 0);
+            var count = await Fixture.Service.CountAsync();            
+            Assert.True(count > 0, String.Format("Total webhooks {0}", count));
         }
 
         [Fact]
